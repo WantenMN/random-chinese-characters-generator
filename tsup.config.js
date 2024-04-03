@@ -3,7 +3,6 @@ import { defineConfig } from 'tsup';
 const env = process.env.NODE_ENV;
 
 export default defineConfig(() => ({
-  sourcemap: env === 'production',
   minify: env === 'production',
   watch: env === 'development',
   clean: true,
