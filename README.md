@@ -7,9 +7,9 @@ A simple package to generate random Chinese characters based on various criteria
 ```bash
 npm install random-chinese-characters-generator
 
-yarn install random-chinese-characters-generator
+yarn add random-chinese-characters-generator
 
-pnpm install random-chinese-characters-generator
+pnpm add random-chinese-characters-generator
 ```
 
 ## Usage
