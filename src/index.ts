@@ -1,5 +1,5 @@
 import { levelsCharacters, strokeCountCharacters } from "./characters";
-import { getRandomElement } from "./lib/utils";
+import { getRandomElement, splitCharacters } from "./lib/utils";
 import { GetCharactersByRange, GetRandomCharacters } from "./types/index";
 
 const getRandomCharacters: GetRandomCharacters = (options = {}) => {
@@ -30,16 +30,18 @@ const getRandomCharacters: GetRandomCharacters = (options = {}) => {
   return characters;
 };
 
-const getCharactersByRange: GetCharactersByRange = (
+export const getCharactersByRange: GetCharactersByRange = (
   charactersObject,
   range
 ) => {
   if (!range) {
-    return Object.values(charactersObject).flatMap((value) => value.split(""));
+    return Object.values(charactersObject).flatMap((value) =>
+      splitCharacters(value)
+    );
   }
 
-  const characters: string[] = [];
   const [minValue, maxValue] = range.sort((a, b) => a - b);
+  const characters: string[] = [];
 
   Object.entries(charactersObject)
     .filter(([key]) => {
@@ -47,7 +49,7 @@ const getCharactersByRange: GetCharactersByRange = (
       return value >= minValue && value <= maxValue;
     })
     .map(([, value]) => {
-      characters.push(...value.split(""));
+      characters.push(...splitCharacters(value));
     });
 
   return characters;
