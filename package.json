@@ -1,6 +1,6 @@
 {
   "name": "random-chinese-characters-generator",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "description": "A simple package generates random Chinese characters",
   "keywords": [
